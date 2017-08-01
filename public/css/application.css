@@ -1,0 +1,79 @@
+html {
+  background: #DDD;
+}
+
+.errors {
+  background: #ff6666;
+  width: 70%;
+  padding: 15px;
+  font-weight: bold;
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+}
+
+body {
+  margin: 0px 25px;
+}
+
+/*Triangle maths*/
+
+.tax-triangle {
+  position: relative;
+}
+
+#triangle-img {
+  position: absolute;
+  border: 2px solid green;
+  z-index: 1;
+  width: 1000px;
+  left: 220px;
+  top: 190px;
+}
+
+.circle {
+  position: absolute;
+  text-align: center;
+  z-index: 3;
+  border: 1px solid red;
+  width: 500px;
+}
+
+.restricted {
+  left: 460px;
+}
+
+.non-qualified {
+  top: 450px;
+  left: 25px;
+}
+
+.qualified {
+  top: 450px;
+  left: 950px;
+}
+
+img {
+  width: 50%;
+  display: inline-block;
+  margin: auto;
+  vertical-align: middle;
+}
+
+.helper {
+  display: inline-block;
+  height: 500px;
+  vertical-align: middle;
+  /*border: 1px solid blue;*/
+}
+
+.img-block {
+  width: 500px;
+  height: 500px;
+  border: 1px solid yellow;
+}
+
+h2 {
+  position: relative;
+}

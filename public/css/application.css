@@ -113,7 +113,7 @@ th {
   background-color: #aaa;
 }
 
-legend {
+legend, .legend {
   text-align: center;
 }
 /*Account Form END*/

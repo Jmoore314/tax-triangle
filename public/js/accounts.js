@@ -1,31 +1,49 @@
-angular.module('accApp', [])
-  .controller('AccListController', function() {
-    var accList = this;
+angular.module('accountApp', [])
+  .controller('AccountListController', function() {
+    var accountList = this;
 
-    accList.accs = [{name:'Account 1', restricted:'rest', nonQualified:'non qual', nonQualifiedAnnuities:'annu', qualified:'qual' }];
+    accountList.accounts = [{name:'john', 
+        restricted:'1234', 
+        nonQualified:'1234', 
+        nonQualifiedAnnuities:'1234', 
+        qualified:'1234', accTotal: '4936'}];
 
-    accList.getAccTotal = function() {
-      
+    accountList.getAccTotal = function() {
+      return accountList.restAmm + accountList.nonQualAmm + accountList.nonQualAnnAmm + accountList.qualAmm
     }
- 
-    accList.addAcc = function() {
-      accList.accs.push({name:accList.name});
-      accList.todoText = '';
-    };
- 
-    todoList.remaining = function() {
-      var count = 0;
-      angular.forEach(todoList.todos, function(todo) {
-        count += todo.done ? 0 : 1;
+
+    accountList.addAccount = function() {
+      accountList.accounts.push({
+        name:accountList.name, 
+        restricted:accountList.restAmm, 
+        nonQualified:accountList.nonQualAmm, 
+        nonQualifiedAnnuities:accountList.nonQualAnnAmm, 
+        qualified:accountList.qualAmm, 
+        accTotal:accountList.getAccTotal()
       });
-      return count;
+      accountList.restAmm = '';
+      accountList.nonQualAmm = '';
+      accountList.nonQualAnnAmm = '';
+      accountList.qualAmm = '';
     };
  
-    todoList.archive = function() {
-      var oldTodos = todoList.todos;
-      todoList.todos = [];
-      angular.forEach(oldTodos, function(todo) {
-        if (!todo.done) todoList.todos.push(todo);
-      });
-    };
+    // accList.getAccTotal = function() {
+    //   return this.restText + this.nonQualText + this.nonQualAnnText + this.qualText
+    // };
+
+    // todoList.remaining = function() {
+    //   var count = 0;
+    //   angular.forEach(todoList.todos, function(todo) {
+    //     count += todo.done ? 0 : 1;
+    //   });
+    //   return count;
+    // };
+ 
+    // todoList.archive = function() {
+    //   var oldTodos = todoList.todos;
+    //   todoList.todos = [];
+    //   angular.forEach(oldTodos, function(todo) {
+    //     if (!todo.done) todoList.todos.push(todo);
+    //   });
+    // };
   });

@@ -8,9 +8,47 @@ angular.module('accountApp', [])
         nonQualifiedAnnuities:'1234', 
         qualified:'1234', accTotal: '4936'}];
 
+    accountList.restrictedTotal = 1234;
+    accountList.nonQualTotal = 1234;
+    accountList.nonQualAnnTotal = 1234;
+    accountList.QualTotal = 1234;
+    accountList.allTotal = 4936;
+
+    accountList.getRestPercent = function() {
+      if (accountList.allTotal == 0) {
+        return  0
+      } else {
+        return (accountList.restrictedTotal / accountList.allTotal) * 100;
+      }
+    };
+
+    accountList.getNQPercent = function() {
+      if (accountList.allTotal == 0) {
+        return  0
+      } else {
+        return (accountList.nonQualTotal / accountList.allTotal) * 100;
+      }
+    };
+
+    accountList.getNQAPercent = function() {
+      if (accountList.allTotal == 0) {
+        return  0
+      } else {
+        return (accountList.nonQualAnnTotal / accountList.allTotal) * 100;
+      }
+    };
+
+    accountList.getQPercent = function() {
+      if (accountList.allTotal == 0) {
+        return  0
+      } else {
+        return (accountList.QualTotal / accountList.allTotal) * 100;
+      }
+    };
+
     accountList.getAccTotal = function() {
-      return accountList.restAmm + accountList.nonQualAmm + accountList.nonQualAnnAmm + accountList.qualAmm
-    }
+      return accountList.restAmm + accountList.nonQualAmm + accountList.nonQualAnnAmm + accountList.qualAmm;
+    };
 
     accountList.addAccount = function() {
       accountList.accounts.push({
@@ -21,23 +59,21 @@ angular.module('accountApp', [])
         qualified:accountList.qualAmm, 
         accTotal:accountList.getAccTotal()
       });
+      accountList.updateTotals();
+      accountList.name = '';
       accountList.restAmm = '';
       accountList.nonQualAmm = '';
       accountList.nonQualAnnAmm = '';
       accountList.qualAmm = '';
     };
- 
-    // accList.getAccTotal = function() {
-    //   return this.restText + this.nonQualText + this.nonQualAnnText + this.qualText
-    // };
 
-    // todoList.remaining = function() {
-    //   var count = 0;
-    //   angular.forEach(todoList.todos, function(todo) {
-    //     count += todo.done ? 0 : 1;
-    //   });
-    //   return count;
-    // };
+    accountList.updateTotals = function() {
+      accountList.restrictedTotal += accountList.restAmm;
+      accountList.nonQualTotal += accountList.nonQualAmm;
+      accountList.nonQualAnnTotal += accountList.nonQualAnnAmm;
+      accountList.QualTotal += accountList.qualAmm;
+      accountList.allTotal += accountList.getAccTotal();
+    };
  
     // todoList.archive = function() {
     //   var oldTodos = todoList.todos;

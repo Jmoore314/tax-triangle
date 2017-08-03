@@ -2,67 +2,9 @@
 <h1>Tax-Triangle</h1>
 <hr>
 
-<form>
-  <fieldset>
-    <legend>Account Information:</legend>
+<%= erb(:_table) %>
 
-    <table>
-      <thead>
-        <tr>
-          <th rowspan="2">Account Name:</th>
-          <th rowspan="2">Restricted</th>
-          <th rowspan="2">Non-Qualified</th>
-          <th rowspan="2">Qualified</th>
-          <th rowspan="2">Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>1</th>
-          <td>100,000</td>
-          <td>20,000</td>
-          <td>40,000</td>
-          <th>160,000</th>
-        </tr>
-        <tr>
-          <th>Total:</th>
-          <th>100,000</th>
-          <th>20,000</th>
-          <th>40,000</th>
-          <th>160,000</th>
-        </tr>
-      </tbody>
-    </table>
-
-  </fieldset>
-</form>
-
-<div class="tax-triangle">
-  <img id="triangle-img" src="triangle.png">
-
-  <div class="restricted circle">
-    <h2>Restricted</h2>
-    <div class="img-block">
-      <span class="helper"></span><img id="restricted-circle" src="circle.png">
-    </div>
-  </div>
-
-  <div class="non-qualified circle">
-    <div class="img-block">
-      <span class="helper"></span><img id="non-circle" src="circle.png">
-    </div>
-    <h2>Non-Qualified</h2>
-  </div>
-
-  <div class="qualified circle">
-    <div class="img-block">
-      <span class="helper"></span><img id="qual-circle" src="circle.png">
-    </div>
-    <h2>Qualified</h2>
-  </div>
-</div>
-
-<hr>
+<%= erb(:_triangle) %>
 
 <!-- <hr>
 <div>

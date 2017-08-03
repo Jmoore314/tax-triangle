@@ -84,6 +84,7 @@ h1 {
   text-align: center;
 }
 
+/*Account Form BEGIN*/
 form {
   width: 70%;
   margin: 0px auto;
@@ -111,3 +112,8 @@ tbody tr:hover, tbody tr:hover th {
 th {
   background-color: #aaa;
 }
+
+legend, .legend {
+  text-align: center;
+}
+/*Account Form END*/

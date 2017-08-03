@@ -1,0 +1,46 @@
+<div ng-controller="AccountListController as accList">
+  <fieldset>
+    <legend>Account Information:</legend>
+    <span class="legend">{{accList.accs.length}} accounts</span>
+    <table>
+      <thead>
+        <tr>
+          <th rowspan="2">Account Name:</th>
+          <th rowspan="2">Restricted</th>
+          <th rowspan="2">Non-Qualified</th>
+          <th rowspan="2">Non-Qualified Annuities</th>
+          <th rowspan="2">Qualified</th>
+          <th rowspan="2">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="acc in accList.accs">
+          <th>{{acc.name}}</th>
+          <td>{{acc.restricted}}</td>
+          <td>{{acc.nonQualified}}</td>
+          <td>{{acc.nonQualifiedAnnuities}}</td>
+          <td>{{acc.qualified}}</td>
+          <th>{{ getAccTotal() }}</th>
+        </tr>
+        <form ng-submit="accList.addAcc()">
+          <tr>
+            <th><input type="text" ng-model="accList.name" size="30" placeholder="Name"></th>
+            <td><input type="number" ng-model="accList.restText" placeholder="Restricted"></td>
+            <td><input type="number" ng-model="accList.nonQualText" placeholder="Non-Qualified"></td>
+            <td><input type="number" ng-model="accList.nonQualAnnText" placeholder="Non-Qualified Annuities"></td>
+            <td><input type="number" ng-model="accList.qualText" placeholder="Qualified"></td>
+            <th><input class="btn-primary" type="submit" value="Add"></th>
+          </tr>
+        </form>
+        <tr>
+          <th>Total:</th>
+          <th>{{ getRestTotal() }} {{ getRestPercent() }}</th>
+          <th>{{ getNonQualTotal() }} {{ getNonQualPercent() }}</th>
+          <th>{{ getNQATotal() }} {{ getNQAPercent() }}</th>
+          <th>{{ getQualTotal() }} {{ getQualPercent() }}</th>
+          <th>{{ getColTotal() }}</th>
+        </tr>
+      </tbody>
+    </table>
+  </fieldset>
+</div>

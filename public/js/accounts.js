@@ -2,17 +2,13 @@ angular.module('accountApp', [])
   .controller('AccountListController', function() {
     var accountList = this;
 
-    accountList.accounts = [{name:'john', 
-        restricted:'1234', 
-        nonQualified:'1234', 
-        nonQualifiedAnnuities:'1234', 
-        qualified:'1234', accTotal: '4936'}];
+    accountList.accounts = [];
 
-    accountList.restrictedTotal = 1234;
-    accountList.nonQualTotal = 1234;
-    accountList.nonQualAnnTotal = 1234;
-    accountList.QualTotal = 1234;
-    accountList.allTotal = 4936;
+    accountList.restrictedTotal = 0;
+    accountList.nonQualTotal = 0;
+    accountList.nonQualAnnTotal = 0;
+    accountList.QualTotal = 0;
+    accountList.allTotal = 0;
 
     accountList.getRestPercent = function() {
       if (accountList.allTotal == 0) {

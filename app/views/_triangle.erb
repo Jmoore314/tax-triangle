@@ -1,26 +1,33 @@
 <div class="tax-triangle">
   <img id="triangle-img" src="triangle.png">
 
-  <div class="restricted circle">
-    <h2>Restricted</h2>
-    <div class="img-block">
-      <span class="helper"></span><img id="restricted-circle" src="circle.png">
+  <div class="envelope">
+    <div class="restricted circle">
+      <div class="img-block">
+        <h2>Restricted ({{accountList.getRestPercent().toFixed(0)}}%)</h2>
+        <span class="helper"></span><img id="restricted-circle" src="lg-circle.png" style=width:{{accountList.getRestPercent().toFixed(0)}}%;>
+      </div>
     </div>
-  </div>
 
-  <div class="non-qualified circle">
-    <div class="img-block">
-      <span class="helper"></span><img id="non-circle" src="circle.png">
+    <div class="non-qualified circle">
+      <div class="img-block">
+        <span class="helper"></span><img id="non-circle" src="lg-circle.png" style=width:{{accountList.getNQPercent()}}%;>
+        <h2>Non-Qualified ({{accountList.getNQPercent()}}%)</h2>
+      </div>
     </div>
-    <h2>Non-Qualified</h2>
-  </div>
 
-  <div class="qualified circle">
-    <div class="img-block">
-      <span class="helper"></span><img id="qual-circle" src="circle.png">
+    <div class="nqa circle">
+      <div class="nqa-img-block">
+        <span class="nqa-helper"></span><img id="nqa-circle" src="lg-circle.png" style=width:{{accountList.getNQAPercent()}}%;>
+        <h2>Non-Qualified Annuities ({{accountList.getNQAPercent()}}%)</h2>
+      </div>
     </div>
-    <h2>Qualified</h2>
+
+    <div class="qualified circle">
+      <div class="img-block">
+        <span class="helper"></span><img id="qual-circle" src="lg-circle.png" style=width:{{accountList.getQPercent()}}%;>
+        <h2>Qualified ({{accountList.getQPercent()}}%)</h2>
+      </div>
+    </div>
   </div>
 </div>
-
-<hr>

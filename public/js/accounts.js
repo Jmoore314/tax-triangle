@@ -74,12 +74,4 @@ angular.module('accountApp', [])
       accountList.QualTotal += accountList.qualAmm;
       accountList.allTotal += accountList.getAccTotal();
     };
- 
-    // todoList.archive = function() {
-    //   var oldTodos = todoList.todos;
-    //   todoList.todos = [];
-    //   angular.forEach(oldTodos, function(todo) {
-    //     if (!todo.done) todoList.todos.push(todo);
-    //   });
-    // };
   });

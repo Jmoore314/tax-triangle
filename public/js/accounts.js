@@ -2,72 +2,97 @@ angular.module('accountApp', [])
   .controller('AccountListController', function() {
     var accountList = this;
 
-    accountList.accounts = [];
+    this.accounts = [];
 
-    accountList.restrictedTotal = 0;
-    accountList.nonQualTotal = 0;
-    accountList.nonQualAnnTotal = 0;
-    accountList.QualTotal = 0;
-    accountList.allTotal = 0;
+    this.restrictedTotal = 0;
+    this.nonQualTotal = 0;
+    this.nonQualAnnTotal = 0;
+    this.QualTotal = 0;
+    this.allTotal = 0;
 
-    accountList.getRestPercent = function() {
-      if (accountList.allTotal == 0) {
+    this.getRestPercent = function() {
+      if (this.allTotal == 0) {
         return  0
       } else {
-        return (accountList.restrictedTotal / accountList.allTotal) * 100;
+        return (this.restrictedTotal / this.allTotal) * 100;
       }
     };
 
-    accountList.getNQPercent = function() {
-      if (accountList.allTotal == 0) {
+    this.getNQPercent = function() {
+      if (this.allTotal == 0) {
         return  0
       } else {
-        return (accountList.nonQualTotal / accountList.allTotal) * 100;
+        return (this.nonQualTotal / this.allTotal) * 100;
       }
     };
 
-    accountList.getNQAPercent = function() {
-      if (accountList.allTotal == 0) {
+    this.getNQAPercent = function() {
+      if (this.allTotal == 0) {
         return  0
       } else {
-        return (accountList.nonQualAnnTotal / accountList.allTotal) * 100;
+        return (this.nonQualAnnTotal / this.allTotal) * 100;
       }
     };
 
-    accountList.getQPercent = function() {
-      if (accountList.allTotal == 0) {
+    this.getQPercent = function() {
+      if (this.allTotal == 0) {
         return  0
       } else {
-        return (accountList.QualTotal / accountList.allTotal) * 100;
+        return (this.QualTotal / this.allTotal) * 100;
       }
     };
 
-    accountList.getAccTotal = function() {
-      return accountList.restAmm + accountList.nonQualAmm + accountList.nonQualAnnAmm + accountList.qualAmm;
+    this.getAccTotal = function() {
+      return this.restAmm + this.nonQualAmm + this.nonQualAnnAmm + this.qualAmm;
     };
 
-    accountList.addAccount = function() {
-      accountList.accounts.push({
-        name:accountList.name, 
-        restricted:accountList.restAmm, 
-        nonQualified:accountList.nonQualAmm, 
-        nonQualifiedAnnuities:accountList.nonQualAnnAmm, 
-        qualified:accountList.qualAmm, 
-        accTotal:accountList.getAccTotal()
+    this.addAccount = function() {
+      this.defaults();
+
+      this.accounts.push({
+        name:this.name, 
+        restricted:this.restAmm, 
+        nonQualified:this.nonQualAmm, 
+        nonQualifiedAnnuities:this.nonQualAnnAmm, 
+        qualified:this.qualAmm, 
+        accTotal:this.getAccTotal()
       });
-      accountList.updateTotals();
-      accountList.name = '';
-      accountList.restAmm = '';
-      accountList.nonQualAmm = '';
-      accountList.nonQualAnnAmm = '';
-      accountList.qualAmm = '';
+
+      this.updateTotals();
+      this.reset();
     };
 
-    accountList.updateTotals = function() {
-      accountList.restrictedTotal += accountList.restAmm;
-      accountList.nonQualTotal += accountList.nonQualAmm;
-      accountList.nonQualAnnTotal += accountList.nonQualAnnAmm;
-      accountList.QualTotal += accountList.qualAmm;
-      accountList.allTotal += accountList.getAccTotal();
+    this.defaults = function() {
+      if (this.restAmm == null) {
+        this.restAmm = 0;
+      };
+
+      if (this.nonQualAmm == null) {
+        this.nonQualAmm = 0;
+      };
+
+      if (this.nonQualAnnAmm == null) {
+        this.nonQualAnnAmm = 0;
+      };
+
+      if (this.qualAmm == null) {
+        this.qualAmm = 0;
+      };
+    }
+
+    this.updateTotals = function() {
+      this.restrictedTotal += this.restAmm;
+      this.nonQualTotal += this.nonQualAmm;
+      this.nonQualAnnTotal += this.nonQualAnnAmm;
+      this.QualTotal += this.qualAmm;
+      this.allTotal += this.getAccTotal();
     };
+
+    this.reset = function() {
+      this.name = null;
+      this.restAmm = null;
+      this.nonQualAmm = null;
+      this.nonQualAnnAmm = null;
+      this.qualAmm = null;
+    }
   });

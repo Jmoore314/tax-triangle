@@ -2,97 +2,97 @@ angular.module('accountApp', [])
   .controller('AccountListController', function() {
     var accountList = this;
 
-    this.accounts = [];
+    accountList.accounts = [];
 
-    this.restrictedTotal = 0;
-    this.nonQualTotal = 0;
-    this.nonQualAnnTotal = 0;
-    this.QualTotal = 0;
-    this.allTotal = 0;
+    accountList.restrictedTotal = 0;
+    accountList.nonQualTotal = 0;
+    accountList.nonQualAnnTotal = 0;
+    accountList.QualTotal = 0;
+    accountList.allTotal = 0;
 
-    this.getRestPercent = function() {
-      if (this.allTotal == 0) {
+    accountList.getRestPercent = function() {
+      if (accountList.allTotal == 0) {
         return  0
       } else {
-        return (this.restrictedTotal / this.allTotal) * 100;
+        return (accountList.restrictedTotal / accountList.allTotal) * 100;
       }
     };
 
-    this.getNQPercent = function() {
-      if (this.allTotal == 0) {
+    accountList.getNQPercent = function() {
+      if (accountList.allTotal == 0) {
         return  0
       } else {
-        return (this.nonQualTotal / this.allTotal) * 100;
+        return (accountList.nonQualTotal / accountList.allTotal) * 100;
       }
     };
 
-    this.getNQAPercent = function() {
-      if (this.allTotal == 0) {
+    accountList.getNQAPercent = function() {
+      if (accountList.allTotal == 0) {
         return  0
       } else {
-        return (this.nonQualAnnTotal / this.allTotal) * 100;
+        return (accountList.nonQualAnnTotal / accountList.allTotal) * 100;
       }
     };
 
-    this.getQPercent = function() {
-      if (this.allTotal == 0) {
+    accountList.getQPercent = function() {
+      if (accountList.allTotal == 0) {
         return  0
       } else {
-        return (this.QualTotal / this.allTotal) * 100;
+        return (accountList.QualTotal / accountList.allTotal) * 100;
       }
     };
 
-    this.getAccTotal = function() {
-      return this.restAmm + this.nonQualAmm + this.nonQualAnnAmm + this.qualAmm;
+    accountList.getAccTotal = function() {
+      return accountList.restAmm + accountList.nonQualAmm + accountList.nonQualAnnAmm + accountList.qualAmm;
     };
 
-    this.addAccount = function() {
-      this.defaults();
+    accountList.addAccount = function() {
+      accountList.defaults();
 
-      this.accounts.push({
-        name:this.name, 
-        restricted:this.restAmm, 
-        nonQualified:this.nonQualAmm, 
-        nonQualifiedAnnuities:this.nonQualAnnAmm, 
-        qualified:this.qualAmm, 
-        accTotal:this.getAccTotal()
+      accountList.accounts.push({
+        name:accountList.name, 
+        restricted:accountList.restAmm, 
+        nonQualified:accountList.nonQualAmm, 
+        nonQualifiedAnnuities:accountList.nonQualAnnAmm, 
+        qualified:accountList.qualAmm, 
+        accTotal:accountList.getAccTotal()
       });
 
-      this.updateTotals();
-      this.reset();
+      accountList.updateTotals();
+      accountList.reset();
     };
 
-    this.defaults = function() {
-      if (this.restAmm == null) {
-        this.restAmm = 0;
+    accountList.defaults = function() {
+      if (accountList.restAmm == null) {
+        accountList.restAmm = 0;
       };
 
-      if (this.nonQualAmm == null) {
-        this.nonQualAmm = 0;
+      if (accountList.nonQualAmm == null) {
+        accountList.nonQualAmm = 0;
       };
 
-      if (this.nonQualAnnAmm == null) {
-        this.nonQualAnnAmm = 0;
+      if (accountList.nonQualAnnAmm == null) {
+        accountList.nonQualAnnAmm = 0;
       };
 
-      if (this.qualAmm == null) {
-        this.qualAmm = 0;
+      if (accountList.qualAmm == null) {
+        accountList.qualAmm = 0;
       };
     }
 
-    this.updateTotals = function() {
-      this.restrictedTotal += this.restAmm;
-      this.nonQualTotal += this.nonQualAmm;
-      this.nonQualAnnTotal += this.nonQualAnnAmm;
-      this.QualTotal += this.qualAmm;
-      this.allTotal += this.getAccTotal();
+    accountList.updateTotals = function() {
+      accountList.restrictedTotal += accountList.restAmm;
+      accountList.nonQualTotal += accountList.nonQualAmm;
+      accountList.nonQualAnnTotal += accountList.nonQualAnnAmm;
+      accountList.QualTotal += accountList.qualAmm;
+      accountList.allTotal += accountList.getAccTotal();
     };
 
-    this.reset = function() {
-      this.name = null;
-      this.restAmm = null;
-      this.nonQualAmm = null;
-      this.nonQualAnnAmm = null;
-      this.qualAmm = null;
+    accountList.reset = function() {
+      accountList.name = null;
+      accountList.restAmm = null;
+      accountList.nonQualAmm = null;
+      accountList.nonQualAnnAmm = null;
+      accountList.qualAmm = null;
     }
   });

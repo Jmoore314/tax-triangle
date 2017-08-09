@@ -25,6 +25,15 @@ body {
   margin: 0px 25px;
 }
 
+h1 {
+  text-align: center;
+}
+
+#print {
+  width: 50px;
+  float: right;
+}
+
 /*Triangle maths BEGIN*/
 
 .geometry {
@@ -115,11 +124,6 @@ img {
   /*border: 1px solid yellow;*/
 }
 /*Triangle maths END*/
-
-
-h1 {
-  text-align: center;
-}
 
 /*Account Form BEGIN*/
 

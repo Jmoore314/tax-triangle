@@ -4,7 +4,7 @@ html {
 
 body {
   background-color: #E0E0E0;
-  min-width: 1300px;
+  min-width: 1000px;
   margin: 0px auto;
   padding: 10px 20px 50px 20px;
   font-family: "Helvetica", sans-serif;
@@ -40,9 +40,9 @@ body {
   position: absolute;
   z-index: 1;
   margin: 0px auto;
-  width: 1000px;
-  height: 800px;
-  top: 250px;
+  width: 750px;
+  height: 600px;
+  top: 360px;
   left: 0px;
   right: 0px;
   bottom: 0px;
@@ -51,8 +51,8 @@ body {
 .envelope {
   position: relative;
   margin: 0px auto;
-  width: 1300px;
-  height: 1100px;
+  width: 1000px;
+  height: 1200px;
   top: 0px;
   left: 0px;
   right: 0px;
@@ -63,26 +63,26 @@ body {
   position: absolute;
   text-align: center;
   z-index: 3;
-  width: 100%;
+  width: 600px;
 }
 
 .restricted {
-  left: 450px;
+  left: 200px;
 }
 
 .non-qualified {
-  top: 675px;
-  left: -50px;
+  top: 530px;
+  left: -175px;
 }
 
 .nqa {
-  top: 725px;
-  left: 500px;
+  top: 580px;
+  left: 250px;
 }
 
 .qualified {
-  top: 675px;
-  left: 950px;
+  top: 530px;
+  left: 575px;
 }
 
 img {
@@ -93,25 +93,25 @@ img {
 
 .helper {
   display: inline-block;
-  height: 400px;
+  height: 600px;
   vertical-align: middle;
 }
 
 .nqa-helper {
   display: inline-block;
-  height: 300px;
+  height: 500px;
   vertical-align: middle;
 }
 
 .img-block {
-  width: 400px;
-  height: 400px;
+  width: 600px;
+  height: 600px;
   /*border: 1px solid yellow;*/
 }
 
 .nqa-img-block {
-  width: 300px;
-  height: 300px;
+  width: 500px;
+  height: 500px;
   /*border: 1px solid yellow;*/
 }
 /*Triangle maths END*/
@@ -122,14 +122,10 @@ h1 {
 }
 
 /*Account Form BEGIN*/
-form {
-  width: 70%;
-  margin: 0px auto;
-}
 
 table {
   margin: 0px auto;
-  width: 90%;
+  width: 100%;
 }
 
 table, th, td {
@@ -138,7 +134,7 @@ table, th, td {
 }
 
 th, td {
-  padding: 10px;
+  padding: 10px 0px;
   text-align: center;
 }
 
@@ -150,11 +146,11 @@ th {
   background-color: #aaa;
 }
 
-legend {
+legend, input {
   text-align: center;
 }
 
-.accounts {
-  margin: 0px auto;
+input {
+  width: 90%; 
 }
 /*Account Form END*/

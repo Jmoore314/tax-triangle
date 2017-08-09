@@ -1,15 +1,15 @@
-<div>
+<div class="tax-table">
   <fieldset>
     <legend>Account Information: {{accountList.accounts.length}} accounts</legend>
     <table>
       <thead>
         <tr>
-          <th rowspan="2">Account Name</th>
-          <th rowspan="2">Restricted</th>
-          <th rowspan="2">Non-Qualified</th>
-          <th rowspan="2">Non-Qualified Annuities</th>
-          <th rowspan="2">Qualified</th>
-          <th rowspan="2">Total</th>
+          <th>Account Name</th>
+          <th>Restricted</th>
+          <th>Non-Qualified</th>
+          <th>Non-Qualified Annuities</th>
+          <th>Qualified</th>
+          <th>Total</th>
         </tr>
       </thead>
       <tbody>
@@ -23,7 +23,7 @@
         </tr>
         <form ng-submit="accountList.addAccount()">
           <tr>
-            <th><input type="text" ng-model="accountList.name" size="20" placeholder="Name"></th>
+            <th><input type="text" ng-model="accountList.name" placeholder="Name"></th>
             <td>$<input type="number" ng-model="accountList.restAmm" placeholder="Restricted"></td>
             <td>$<input type="number" ng-model="accountList.nonQualAmm" placeholder="Non-Qualified"></td>
             <td>$<input type="number" ng-model="accountList.nonQualAnnAmm" placeholder="Non-Qualified Annuities"></td>
